@@ -1,5 +1,6 @@
 import { Router } from "express";
 import {
+  getUsers,
   getUser,
   createUser,
   updateUser,
@@ -8,12 +9,14 @@ import {
 
 const router = Router();
 
-router.get("/users", getUser);
+router.get("/users", getUsers);
+
+router.get("/users/:id", getUser); //:id es el parámetro que puedo obtener gracias a express
 
 router.post("/users", createUser);
 
-router.put("/users", updateUser);
+router.patch("/users/:id", updateUser); //patch es una forma establecida por REST para referirme a los PUT que sean parciales
 
-router.delete("/users", deleteUser);
+router.delete("/users/:id", deleteUser);
 
 export default router;
