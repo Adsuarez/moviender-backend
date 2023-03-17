@@ -1,11 +1,5 @@
 import { pool } from "../db.js";
 
-/*
-  Esta sintaxys genera error cuando hay más de una variable a insertar
-  👇
-  `UPDATE user SET userName = ${userName} WHERE id = ${id}`
-*/
-
 export const getUsers = async (req, res) => {
   try {
     const [rows] = await pool.query("SELECT * FROM user");
@@ -19,7 +13,6 @@ export const getUsers = async (req, res) => {
 
 export const getUser = async (req, res) => {
   try {
-    //en req.params se guardan todos los parámetros que viajen desde la url
     const { id } = req.params;
 
     const [[rows]] = await pool.query(`SELECT * FROM user WHERE id = ${id}`);
@@ -96,3 +89,9 @@ export const deleteUser = async (req, res) => {
     });
   }
 };
+
+/*
+  This sintax make an error when there are more than one variable to insert
+                                  👇                   👇
+  `UPDATE user SET userName = ${userName} WHERE id = ${id}`
+*/
