@@ -24,6 +24,6 @@ INSERT INTO user VALUES
 
 SELECT * FROM user;
 
-['shrek 1', 'batman']
-['flash', 'superman', 'drakula']
-['sabrina', 'wednesday']
+-- ['shrek 1', 'batman']
+-- ['flash', 'superman', 'drakula']
+-- ['sabrina', 'wednesday']
