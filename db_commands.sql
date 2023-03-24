@@ -1,1 +1,14 @@
 SHOW DATABASES;
+
+USE moviender_db;
+
+CREATE TABLE IF NOT EXISTS `user` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `userName` VARCHAR(16) DEFAULT NULL,
+  `myMovies` JSON DEFAULT NULL,
+  PRIMARY KEY (`id`)
+  );
+  
+  DESCRIBE user;
+  
+  SELECT * FROM user;

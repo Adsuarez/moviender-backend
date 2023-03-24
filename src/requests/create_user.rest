@@ -7,8 +7,10 @@ content-type: application/json
 }
 
 ###
-POST https://moviender-backend-production.up.railway.app/api/users  HTTP/1.1
+POST http://localhost:3000/api/users  HTTP/1.1
 content-type: application/json
 
 {
+    "userName": "im pass through the middleware",
+    "myMovies": "[45654, 200, 654, 2154]"
 }

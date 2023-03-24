@@ -3,8 +3,15 @@ import indexRoutes from "./routes/index.routes.js";
 import usersRoutes from "./routes/users.routes.js";
 
 const app = express();
-
+app.use(cors());
 app.use(express.json()); //Transform datas in JSON to NodeJS can recognize them.
+app.use((req, res, next) => {
+  console.log(req.method);
+  console.log(req.path);
+  console.log(req.body);
+  console.log("------");
+  next();
+});
 app.use(indexRoutes);
 app.use("/api", usersRoutes);
 app.use((req, res, next) => {
