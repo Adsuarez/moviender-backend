@@ -2,6 +2,13 @@ POST https://moviender-backend-production.up.railway.app/api/users  HTTP/1.1
 content-type: application/json
 
 {
-    "userName": "ConchaProbando",
-    "myMovies": "['550', '35520', '45654', '2001', '365254']"
+    "userName": "probe this",
+    "myMovies": "[45654, 200, 654, 2154]"
+}
+
+###
+POST https://moviender-backend-production.up.railway.app/api/users  HTTP/1.1
+content-type: application/json
+
+{
 }

@@ -36,7 +36,7 @@ export const createUser = async (req, res) => {
       "INSERT INTO user (userName, myMovies) VALUES (?, ?)",
       [userName, myMovies]
     );
-    res.send({
+    res.status(201).send({
       id: rows.insertId,
       userName,
       myMovies,
