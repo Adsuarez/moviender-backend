@@ -1,6 +1,7 @@
 import express from "express";
 import indexRoutes from "./routes/index.routes.js";
 import usersRoutes from "./routes/users.routes.js";
+import cors from "cors";
 
 const app = express();
 app.use(cors());
@@ -11,7 +12,7 @@ app.use((req, res, next) => {
   console.log(req.body);
   console.log("------");
   next();
-});
+}); //this is a way to intercept any query
 app.use(indexRoutes);
 app.use("/api", usersRoutes);
 app.use((req, res, next) => {
