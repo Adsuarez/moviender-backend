@@ -6,6 +6,7 @@ import cors from "cors";
 const app = express();
 app.use(cors());
 app.use(express.json()); //Transform datas in JSON to NodeJS can recognize them.
+app.use(express.text());
 app.use((req, res, next) => {
   console.log(req.method);
   console.log(req.path);

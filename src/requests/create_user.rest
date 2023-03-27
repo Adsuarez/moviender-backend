@@ -3,14 +3,18 @@ content-type: application/json
 
 {
     "userName": "probe this",
-    "myMovies": "[45654, 200, 654, 2154]"
+    "email": "adsq@hotmail.com",
+    "myMovies": "['{like: '[45654, 200, 654, 2154]'}', '{dislike: '[]'}', '{desire: '[]'}']",
+    "schedule": "['{'id': 12345, 'date': 'mar-31-2023'}', '{'id': 54654, 'date': 'apr-05-2023'}']"
 }
 
 ###
-POST http://localhost:3000/api/users  HTTP/1.1
+POST http://localhost:3001/api/users  HTTP/1.1
 content-type: application/json
 
 {
-    "userName": "im pass through the middleware",
-    "myMovies": "[45654, 200, 654, 2154]"
+    "userName": "im pass through",
+    "email": "adsq@hotmail.com",
+    "myMovies": "[{'like': [45654, 200, 654, 2154]},{dislike: [456545, 212321]},{desire: []}]",
+    "schedule": "['{'id': 12345, 'date': 'mar-31-2023'}', '{'id': 54654, 'date': 'apr-05-2023'}']"
 }
