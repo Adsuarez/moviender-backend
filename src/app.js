@@ -3,6 +3,7 @@ import indexRoutes from "./routes/index.routes.js";
 import usersRoutes from "./routes/users.routes.js";
 import cors from "cors";
 
+console.clear();
 const app = express();
 app.use(cors());
 app.use(express.json()); //Transform datas in JSON to NodeJS can recognize them.
@@ -21,5 +22,15 @@ app.use((req, res, next) => {
     message: "Endpoint not found",
   });
 }); //this is a middleware function
+app.use((error, req, res, next) => {
+  if (error.name === "CastError")
+    return res.status(400).json({
+      message: error.message,
+    });
+
+  return res.status(500).json({
+    message: error.message,
+  });
+});
 
 export default app;
