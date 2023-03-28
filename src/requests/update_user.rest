@@ -1,0 +1,8 @@
+PATCH  http://localhost:3001/api/users/a  HTTP/1.1
+content-type: application/json
+
+{
+    "userName": "peludito",
+    "myMovies": "[{\"like\": [554]},{\"dislike\": [456545, 212321]},{\"desire\": [6454]}]",
+    "schedule": "[{\"id\": 12345, \"date\": \"mar-31-2023\"}, {\"id\": 54654, \"date\": \"apr-05-2023\"}, {\"id\": 545, \"date\": \"apr-16-2023\"}]"
+}
