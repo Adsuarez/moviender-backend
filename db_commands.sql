@@ -26,5 +26,6 @@ CREATE TABLE IF NOT EXISTS `user` (
   "myMovies": '[{"like": [45654, 200, 654, 2154]},{"dislike": [456545, 212321]},{"desire": []}]',
   "schedule": '[{"id": 12345, "date": "mar-31-2023"}, {"id": 54654, "date": "apr-05-2023"}]'
   */
+  UPDATE user SET userName = IFNULL("ads", userName) WHERE id = 1;
   
   -- DROP table user;
