@@ -19,5 +19,13 @@
   "devDependencies": {
     "dotenv": "16.0.3",
     "nodemon": "2.0.22"
+  },
+  "imports": {
+    "#Config/*": "./src/config/*",
+    "#Controllers/*": "./src/controllers/*",
+    "#Dto/*": "./src/dto/*",
+    "#Helpers/*": "./src/helpers/*",
+    "#Routes/*": "./src/routes/*",
+    "#Schemas/*": "./src/schemas/*"
   }
 }
