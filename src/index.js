@@ -1,7 +1,10 @@
-import app from "./app.js";
-import { PORT } from "./config.js";
+import httpServer from "#Config/http.js";
+import { PORT } from "#Config/environment.js";
 
-app.listen(PORT, () => {
-  //the console log is on callback because listen method is asyncronous
-  console.log(`Server is running on port ${PORT}`);
-});
+const bootstrapping = () => {
+  httpServer.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+  });
+};
+
+bootstrapping();
