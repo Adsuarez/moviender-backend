@@ -1,4 +1,4 @@
-import { pool } from "../db.js";
+import { pool } from "#Config/db.js";
 import { data as fakeData } from "../../fakeResponse.js";
 
 export const ping = async (req, res) => {

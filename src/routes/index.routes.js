@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { ping, data } from "../controllers/index.controller.js";
+import { ping, data } from "#Controllers/index.controller.js";
 
 const router = Router();
 

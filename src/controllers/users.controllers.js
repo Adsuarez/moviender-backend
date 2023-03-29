@@ -1,5 +1,5 @@
-import { pool } from "../db.js";
-import { notFound } from "../helpers/notFound.js";
+import { pool } from "#Config/db.js";
+import { notFound } from "#Helpers/notFound.js";
 
 export const getUsers = (req, res, next) => {
   pool
