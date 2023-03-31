@@ -3,11 +3,13 @@ SHOW DATABASES;
 USE moviender_db;
 
 CREATE TABLE IF NOT EXISTS `user` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `userName` VARCHAR(32) DEFAULT NULL,
+  `id` VARCHAR(255) NOT NULL UNIQUE,
   `email` VARCHAR(50) NOT NULL UNIQUE,
+  `userName` VARCHAR(32) DEFAULT NULL,
+  `password` VARCHAR(255) NOT NULL,
   `myMovies` JSON DEFAULT NULL,
   `schedule` JSON DEFAULT NULL,
+  `friends` JSON DEFAULT NULL,
   PRIMARY KEY (`id`)
   );
   
@@ -28,4 +30,4 @@ CREATE TABLE IF NOT EXISTS `user` (
   */
   UPDATE user SET userName = IFNULL("ads", userName) WHERE id = 1;
   
-  -- DROP table user;
+  DROP table user;
