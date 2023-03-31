@@ -21,10 +21,16 @@ expressApp.use((req, res, next) => {
   res.status(404).json({
     message: "Endpoint not found",
   });
-}); //this is a middleware function
+});
 expressApp.use((error, req, res, next) => {
+  console.log(error.code);
   if (error.name === "CastError")
     return res.status(400).json({
+      message: error.message,
+    });
+
+  if (error.code === "ER_DUP_ENTRY")
+    return res.status(409).json({
       message: error.message,
     });
 
