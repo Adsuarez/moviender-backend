@@ -1,5 +1,7 @@
 import { pool } from "#Config/db.js";
 import { notFound } from "#Helpers/notFound.js";
+import { generateId } from "#Helpers/id.js";
+import { encryptPassword } from "#Helpers/password.js";
 
 export const getUsers = (req, res, next) => {
   pool
@@ -22,20 +24,22 @@ export const getUser = (req, res, next) => {
     .catch(next);
 };
 
-export const createUser = (req, res, next) => {
-  const { userName, email, myMovies, schedule } = req.body;
+export const createUser = async (req, res, next) => {
+  const { userName, email, password } = req.body;
+
+  const id = await generateId();
+  const encodePasswords = await encryptPassword(password);
+
   pool
     .query(
-      "INSERT INTO user (userName, email, myMovies, schedule) VALUES (?, ?, ?, ?)",
-      [userName, email, myMovies, schedule]
+      "INSERT INTO user (id, email, userName, password) VALUES (?, ?, ?, ?)",
+      [id, email, userName, encodePasswords]
     )
     .then(([rows]) =>
       res.status(201).json({
-        id: rows.insertId,
+        id,
         userName,
         email,
-        myMovies,
-        schedule,
       })
     )
     .catch(next);
