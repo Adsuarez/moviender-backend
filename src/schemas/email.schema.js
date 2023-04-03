@@ -9,14 +9,15 @@ export const emailSchema = {
 
 export const verifyEmailSchema = async (email) => {
   console.log("email is not passed");
-  if (email === null) return false;
+  if (!email) return false;
   console.clear();
   console.log("email is passed");
   console.log("email is not in correct format");
   if (typeof email !== emailSchema.type) return false;
   console.clear();
-  console.log("email is in correct format");
+  console.log("email is a correct format");
   console.log("email exist yet in database");
+  console.log(await isEmailInDB(email));
   if (await isEmailInDB(email)) return false;
   console.clear();
   console.log("email not exist in database");
