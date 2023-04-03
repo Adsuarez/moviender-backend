@@ -23,7 +23,7 @@ expressApp.use((req, res, next) => {
   });
 });
 expressApp.use((error, req, res, next) => {
-  console.log(error.code);
+  console.log("from middleware to errors: ", error.code);
   if (error.name === "CastError")
     return res.status(400).json({
       message: error.message,
