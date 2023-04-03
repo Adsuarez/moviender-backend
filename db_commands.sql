@@ -30,4 +30,6 @@ CREATE TABLE IF NOT EXISTS `user` (
   */
   UPDATE user SET userName = IFNULL("ads", userName) WHERE id = 1;
   
+  SELECT * FROM user WHERE email = "testasas@test.com";
+  
   DROP table user;
