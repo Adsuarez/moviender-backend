@@ -1,4 +1,4 @@
 GET https://moviender-backend-production.up.railway.app/api/users/103
 
 ###
-GET http://localhost:3001/api/users/
+GET http://localhost:3010/api/users/e1h1FC9MLltD92jjk6rVo

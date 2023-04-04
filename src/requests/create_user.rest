@@ -18,3 +18,12 @@ content-type: application/json
     "myMovies": "[{\"like\": [45321, 21200, 23654, 554]},{\"dislike\": [456545, 212321]},{\"desire\": [6454, 2123]}]",
     "schedule": "[{\"id\": 12345, \"date\": \"mar-31-2023\"}, {\"id\": 54654, \"date\": \"apr-05-2023\"}]"
 }
+
+###
+POST http://localhost:3010/api/users  HTTP/1.1
+content-type: application/json
+
+{
+    "email": "7test@gmail.com",
+    "password": "Testing7"
+}
