@@ -7,3 +7,5 @@ Icons meening:
 
 Tasks:
 - ❌ Define usability for emailSchema.unique and emailSchema.require
+- ❌ Pending understand and solve ocasional error with ERR_HTTP_HEADERS_SENT
+- ❌ Solve error with numeric id because now DB use an string
