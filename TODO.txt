@@ -1,0 +1,9 @@
+Icons meening:
+✅ -> the task is full
+🟢 -> the task is done but it will be better
+🟠 -> the task is in process
+❌ -> the task is pending
+❓ -> the task may be necesary or not
+
+Tasks:
+- ❌ Define usability for emailSchema.unique and emailSchema.require
