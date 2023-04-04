@@ -4,15 +4,15 @@ import { verifyPasswordSchema } from "#Schemas/password.schema.js";
 export async function userAuthDTO(req, res, next) {
   const { email, password } = req.body;
 
-  /*  const conflictError = () => {
-    return res.status(409).json({
-      message: "Conflict",
+  const conflictError = () => {
+    return res.status(401).json({
+      message: "wrong credentials",
     });
-  };*/
+  };
 
   verifyEmailSchema(email)
     .then((check) => {
-      if (check === false) return res.status(409).json({ message: "Conflict" });
+      if (check === false) return conflictError();
     })
     .catch((error) => {
       console.log("From email catch");
@@ -21,13 +21,11 @@ export async function userAuthDTO(req, res, next) {
 
   verifyPasswordSchema(password)
     .then((check) => {
-      if (check === false) return res.status(409).json({ message: "Conflict" });
+      if (check === false) return conflictError();
       return next();
     })
     .catch((error) => {
       console.log("From password catch");
       next(error);
     });
-
-  //return res.status(400).json({ message: "wrong credentials" });
 }
