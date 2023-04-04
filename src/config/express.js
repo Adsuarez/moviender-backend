@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import indexRoutes from "#Routes/index.routes.js";
 import usersRoutes from "#Routes/users.routes.js";
+import { notFound } from "#Helpers/errors.js";
 
 const expressApp = express();
 console.clear();
@@ -18,9 +19,7 @@ expressApp.use((req, res, next) => {
 expressApp.use(indexRoutes);
 expressApp.use("/api", usersRoutes);
 expressApp.use((req, res, next) => {
-  res.status(404).json({
-    message: "Endpoint not found",
-  });
+  return notFound(res, "endpoint");
 });
 expressApp.use((error, req, res, next) => {
   console.log("from middleware to errors: ", error.code);
