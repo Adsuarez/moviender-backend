@@ -1,18 +1,18 @@
 import { verifyEmailSchema } from "#Schemas/email.schema.js";
 import { verifyPasswordSchema } from "#Schemas/password.schema.js";
+import { unauthorized } from "#Helpers/errors.js";
 
 export async function userAuthDTO(req, res, next) {
-  const { email, password } = req.body;
+  const { body } = req;
+  const AMOUNT_OF_VALUES = 2;
 
-  const conflictError = () => {
-    return res.status(401).json({
-      message: "wrong credentials",
-    });
-  };
+  if (Object.keys(body).length > AMOUNT_OF_VALUES) return unauthorized(res);
+
+  const { email, password } = body;
 
   verifyEmailSchema(email)
     .then((check) => {
-      if (check === false) return conflictError();
+      if (check === false) return unauthorized(res);
     })
     .catch((error) => {
       console.log("From email catch");
@@ -21,7 +21,7 @@ export async function userAuthDTO(req, res, next) {
 
   verifyPasswordSchema(password)
     .then((check) => {
-      if (check === false) return conflictError();
+      if (check === false) return unauthorized(res);
       return next();
     })
     .catch((error) => {
