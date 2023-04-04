@@ -1,14 +1,14 @@
 import { pool } from "#Config/db.js";
 
-export async function isEmailInDB(emailToSearch) {
-  pool
-    .query("SELECT email FROM user WHERE email = ?", [emailToSearch])
+export async function isEmailInDB(email) {
+  return pool
+    .query("SELECT email FROM user WHERE email = ?", [email])
     .then(([[rows]]) => {
-      console.log(rows);
-      if (typeof rows === "object") return true;
+      if (rows) return true;
       return false;
     })
     .catch((error) => {
+      console.log("from isEmailInDB");
       console.error(error);
     });
 }
