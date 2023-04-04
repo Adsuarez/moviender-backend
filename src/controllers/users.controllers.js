@@ -1,5 +1,5 @@
 import { pool } from "#Config/db.js";
-import { notFound } from "#Helpers/notFound.js";
+import { notFound } from "#Helpers/errors.js";
 import { generateId } from "#Helpers/id.js";
 import { encryptPassword } from "#Helpers/password.js";
 
@@ -13,7 +13,7 @@ export const getUsers = (req, res, next) => {
 export const getUser = (req, res, next) => {
   const { id } = req.params;
 
-  if (/[a-zA-Z]/g.test(id)) return notFound(res, "user");
+  //if (/[a-zA-Z]/g.test(id)) return notFound(res, "user");
 
   pool
     .query(`SELECT * FROM user WHERE id = ${id}`)
