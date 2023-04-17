@@ -13,8 +13,6 @@ export const getUsers = (req, res, next) => {
 export const getUser = (req, res, next) => {
   const { id } = req.params;
 
-  //if (/[a-zA-Z]/g.test(id)) return notFound(res, "user");
-
   pool
     .query(`SELECT * FROM user WHERE id = ${id}`)
     .then(([[rows]]) => {
@@ -48,7 +46,6 @@ export const createUser = async (req, res, next) => {
 export const updateUser = (req, res, next) => {
   const { id } = req.params;
   const { userName, myMovies, schedule } = req.body;
-  if (/[a-zA-Z]/g.test(id)) return notFound(res, "user");
   pool
     .query(
       "UPDATE user SET userName = IFNULL(?, userName), myMovies = IFNULL(?, myMovies), schedule = IFNULL(?, schedule) WHERE id = ?",
@@ -66,7 +63,6 @@ export const updateUser = (req, res, next) => {
 
 export const deleteUser = async (req, res, next) => {
   const { id } = req.params;
-  if (/[a-zA-Z]/g.test(id)) return notFound(res, "user");
   pool
     .query("DELETE FROM user WHERE id = ?", [id])
     .then(([result]) => {
