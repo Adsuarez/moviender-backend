@@ -1,14 +1,12 @@
 import express from "express";
 import cors from "cors";
-import indexRoutes from "#Routes/index.routes.js";
 import usersRoutes from "#Routes/users.routes.js";
 import { notFound } from "#Helpers/errors.js";
 
 const expressApp = express();
 console.clear();
 expressApp.use(cors());
-expressApp.use(express.json()); //Transform datas in JSON to NodeJS can recognize them.
-expressApp.use(express.text());
+expressApp.use(express.json());
 expressApp.use((req, res, next) => {
   console.log(req.method);
   console.log(req.path);
@@ -16,7 +14,6 @@ expressApp.use((req, res, next) => {
   console.log("------");
   next();
 }); //this is a way to intercept any query
-expressApp.use(indexRoutes);
 expressApp.use("/api", usersRoutes);
 expressApp.use((req, res, next) => {
   return notFound(res, "endpoint");
