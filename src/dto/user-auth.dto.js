@@ -2,7 +2,7 @@ import { verifyEmailSchema } from "#Schemas/email.schema.js";
 import { verifyPasswordSchema } from "#Schemas/password.schema.js";
 import { unauthorized } from "#Helpers/errors.js";
 
-export async function userAuthDTO(req, res, next) {
+export function userAuthDTO(req, res, next) {
   const { body } = req;
   const AMOUNT_OF_VALUES = 2;
 
