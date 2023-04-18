@@ -28,7 +28,7 @@ export async function createUser(req, res, next) {
   const id = await generateId();
   const encodePasswords = await encryptPassword(password);
 
-  pool
+  return pool
     .query(
       "INSERT INTO user (id, email, userName, password) VALUES (?, ?, ?, ?)",
       [id, email, userName, encodePasswords]

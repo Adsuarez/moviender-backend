@@ -19,12 +19,12 @@ export async function userAuthDTO(req, res, next) {
       next(error);
     });
 
-  verifyPasswordSchema(password)
+  return verifyPasswordSchema(password)
     .then((check) => {
       console.log("check verification is: ", { check });
       if (check === false) return unauthorized(res);
       console.log("pasword check is ok");
-      next();
+      return next();
     })
     .catch(next);
 }
