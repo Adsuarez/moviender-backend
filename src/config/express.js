@@ -30,9 +30,10 @@ expressApp.use((error, req, res, next) => {
       message: error.message,
     });
 
-  return res.status(500).json({
-    message: error.message,
-  });
+  if (error.code === "ERR_HTTP_HEADERS_SENT")
+    return res.status(444).json({
+      message: error.message,
+    });
 });
 
 export default expressApp;
