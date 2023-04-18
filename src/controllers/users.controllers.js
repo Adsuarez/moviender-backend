@@ -22,7 +22,7 @@ export const getUser = (req, res, next) => {
     .catch(next);
 };
 
-export const createUser = async (req, res, next) => {
+export async function createUser(req, res, next) {
   const { userName, email, password } = req.body;
 
   const id = await generateId();
@@ -41,7 +41,7 @@ export const createUser = async (req, res, next) => {
       })
     )
     .catch(next);
-};
+}
 
 export const updateUser = (req, res, next) => {
   const { id } = req.params;
