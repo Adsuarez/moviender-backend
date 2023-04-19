@@ -2,7 +2,7 @@ import { verifyEmailSchema } from "#Schemas/email.schema.js";
 import { verifyPasswordSchema } from "#Schemas/password.schema.js";
 import { unauthorized } from "#Helpers/errors.js";
 
-export async function userAuthDTO(req, res, next) {
+export function userAuthDTO(req, res, next) {
   const { body } = req;
   const AMOUNT_OF_VALUES = 2;
 
@@ -13,18 +13,13 @@ export async function userAuthDTO(req, res, next) {
   verifyEmailSchema(email)
     .then((check) => {
       if (check === false) return unauthorized(res);
-    })
-    .catch((error) => {
-      console.log("From email catch");
-      next(error);
-    });
 
-  return verifyPasswordSchema(password)
-    .then((check) => {
-      console.log("check verification is: ", { check });
-      if (check === false) return unauthorized(res);
-      console.log("pasword check is ok");
-      return next();
+      verifyPasswordSchema(password)
+        .then((check) => {
+          if (check === false) return unauthorized(res);
+          next();
+        })
+        .catch(next);
     })
     .catch(next);
 }
