@@ -1,6 +1,6 @@
-import { createServer } from "http";
-import expressApp from "./express.js";
+import { createServer } from 'http'
+import expressApp from './express.js'
 
-const httpServer = createServer(expressApp);
+const httpServer = createServer(expressApp)
 
-export default httpServer;
+export default httpServer

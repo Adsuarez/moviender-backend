@@ -1,5 +1,5 @@
-import { nanoid } from "nanoid/async";
+import { nanoid } from 'nanoid/async'
 
 export async function generateId() {
-  return await nanoid();
+  return await nanoid()
 }
