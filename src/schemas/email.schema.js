@@ -3,7 +3,7 @@ import { isEmailInDB } from "#Helpers/isEmailInDB.js";
 export const emailSchema = {
   require: true,
   type: "string",
-  format: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g,
+  format: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
   unique: true,
 };
 
