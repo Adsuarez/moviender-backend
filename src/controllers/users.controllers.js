@@ -14,7 +14,7 @@ export const getUser = (req, res, next) => {
   const { id } = req.params
 
   pool
-    .query(`SELECT * FROM user WHERE id = ${id}`)
+    .query('SELECT * FROM user WHERE id = ?', [id])
     .then(([[rows]]) => {
       if (rows === undefined) return notFound(res, 'user')
       return res.json(rows)
