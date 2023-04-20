@@ -9,13 +9,13 @@ expressApp.use(cors())
 expressApp.use(express.json())
 
 // intercept all queries to debugging information
-expressApp.use((req, res, next) => {
+/*  expressApp.use((req, res, next) => {
   console.log(req.method)
   console.log(req.path)
   console.log(req.body)
   console.log('------')
   next()
-})
+})  */
 
 expressApp.use('/api', usersRoutes)
 expressApp.use((req, res, next) => {
