@@ -3,7 +3,7 @@ import request from 'supertest'
 import { API_USERS } from '#Config/constants.js'
 
 const userCorrect = {
-  email: '10-jest@test.com',
+  email: '11-jest@test.com',
   password: 'TestJest123',
 }
 
